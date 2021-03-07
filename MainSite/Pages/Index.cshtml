@@ -1,5 +1,6 @@
 ﻿@page
 @model IndexModel
+@using CommonUI
 @{
     ViewData["Title"] = "Home page";
 }
@@ -10,3 +11,9 @@
 </div>
 
 <p>You're currently on @Model.AppName</p>
+@*
+<TestComponent/>
+
+<div>
+    @await Component.InvokeAsync("CommonMenu")
+</div>*@

@@ -1,0 +1,45 @@
+﻿@model CommonUI.CommonMenuViewModel
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 justify-content-between">
+    <div class="container">
+        <a class="navbar-brand" asp-area="" asp-page="/Index">Generated Menu</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            <ul class="navbar-nav flex-grow-1">
+            @foreach (var item in Model.MenuItems)
+            {
+                if (item.SubItems.Any())
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@item.Text</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="@item.Link">@item.Text</a>
+                            @foreach (var sub in item.SubItems)
+                            {
+                                <a class="dropdown-item" href="@sub.Link">@sub.Text</a>
+                            }
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="@item.Link">@item.Text</a>
+                    </li>
+                }
+            }
+            </ul>
+
+        </div>
+
+        @if (!Model.IsLoggedIn)
+        {
+            <span class="navbar-text">Log in goes here.</span>
+        }
+
+    </div>
+</nav>

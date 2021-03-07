@@ -1,4 +1,5 @@
 ﻿@inject ImagesSite.Services.LinkService linkService
+@using CommonUI
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,29 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">ImagesSite</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="@linkService.ImagesLink()">Images</a>
-                        </li>
-
-                        <li>
-                            <a class="nav-link text-dark" href="@linkService.ThingsLink()">Things</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <vc:common-menu></vc:common-menu>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -40,11 +19,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - ImagesSite - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+    <vc:common-footer></vc:common-footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

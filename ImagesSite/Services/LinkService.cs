@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -10,15 +11,17 @@ namespace ImagesSite.Services
     public class LinkService
     {
         private readonly IWebHostEnvironment environment;
+        private readonly bool useProxy;
 
-        public LinkService(IWebHostEnvironment environment)
+        public LinkService(IWebHostEnvironment environment, IConfiguration configuration)
         {
             this.environment = environment;
+            this.useProxy = configuration.GetValue<bool>("UseProxy");
         }
 
         public virtual string ImagesLink()
         {
-            if (environment.IsDevelopment())
+            if (environment.IsDevelopment() && !useProxy)
             {
                 return "/";
             }
@@ -30,7 +33,7 @@ namespace ImagesSite.Services
 
         public virtual string ThingsLink()
         {
-            if (environment.IsDevelopment())
+            if (environment.IsDevelopment() && !useProxy)
             {
                 return "/things";
             }
@@ -39,6 +42,5 @@ namespace ImagesSite.Services
                 return "/images/things";
             }
         }
-
     }
 }

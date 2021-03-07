@@ -30,6 +30,8 @@ namespace ImagesSite
             services.Configure<NamesOptions>(this.Configuration.GetSection(NamesOptions.Names));
 
             services.AddScoped(typeof(LinkService));
+
+            services.AddScoped<CommonUI.IMenuItemGenerationService, CommonUI.InMemoryMenuItemGenerationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

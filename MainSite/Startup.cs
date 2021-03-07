@@ -27,6 +27,8 @@ namespace MainSite
             services.AddRazorPages();
 
             services.Configure<NamesOptions>(Configuration.GetSection(NamesOptions.Names));
+
+            services.AddScoped<CommonUI.IMenuItemGenerationService, CommonUI.InMemoryMenuItemGenerationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
