@@ -32,7 +32,7 @@ namespace CommonUI
 
     public class InMemoryMenuItemGenerationService : IMenuItemGenerationService
     {
-        public IEnumerable<MenuItem> GenerateMenuItems()
+        public virtual IEnumerable<MenuItem> GenerateMenuItems()
         {
             var items = new List<MenuItem>
             {

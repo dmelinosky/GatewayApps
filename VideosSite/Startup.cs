@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VideoSite.Models;
-using VideosSite.Services;
 
 namespace VideosSite
 {
@@ -27,8 +26,6 @@ namespace VideosSite
             services.AddRazorPages();
 
             services.Configure<NamesOptions>(this.Configuration.GetSection(NamesOptions.Names));
-
-            services.AddScoped(typeof(LinkService));
 
             services.AddScoped<CommonUI.IMenuItemGenerationService, CommonUI.InMemoryMenuItemGenerationService>();
         }

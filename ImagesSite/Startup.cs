@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
 namespace ImagesSite
@@ -29,9 +30,14 @@ namespace ImagesSite
 
             services.Configure<NamesOptions>(this.Configuration.GetSection(NamesOptions.Names));
 
-            services.AddScoped(typeof(LinkService));
-
-            services.AddScoped<CommonUI.IMenuItemGenerationService, CommonUI.InMemoryMenuItemGenerationService>();
+            if (this.Configuration.GetValue<bool>("StandaloneMode"))
+            {
+                services.TryAddScoped<CommonUI.IMenuItemGenerationService, StandaloneInMemoryMenuItemGenerationService>();
+            }
+            else
+            {
+                services.TryAddScoped<CommonUI.IMenuItemGenerationService, CommonUI.InMemoryMenuItemGenerationService>();
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

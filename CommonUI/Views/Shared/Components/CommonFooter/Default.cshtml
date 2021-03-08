@@ -2,6 +2,12 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; @Model.YearString - CommonFooter - <a href="@Model.Privacy.Link">@Model.Privacy.Text</a>
+        &copy; @Model.YearString - CommonFooter
+    
+        @if (Model.Privacy != null)
+        {
+            <span>- <a href="@Model.Privacy.Link">@Model.Privacy.Text</a></span>
+        }
+    
     </div>
 </footer>
