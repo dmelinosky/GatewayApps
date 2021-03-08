@@ -37,6 +37,8 @@ namespace ImagesSite
                 services.RemoveAll<CommonUI.IMenuItemGenerationService>();
                 services.TryAddScoped<CommonUI.IMenuItemGenerationService, StandaloneInMemoryMenuItemGenerationService>();
             }
+
+            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +65,7 @@ namespace ImagesSite
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
             });
         }
     }

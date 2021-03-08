@@ -6,3 +6,15 @@
 <p>Image things</p>
 
 <p>You're currently on @Model.AppName</p>
+
+<component type="typeof(CommonUI.Components.TestingSharedComponent)" render-mode="ServerPrerendered" param-Message="ComponentLabel"/>
+
+@functions {
+    [BindProperty(SupportsGet = true)]
+    public string ComponentLabel { get; set; } = "Testing shared component on Things page";
+}
+
+
+@section scripts {
+    <script src="_framework/blazor.server.js"></script>
+}

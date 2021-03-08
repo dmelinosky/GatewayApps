@@ -1,0 +1,29 @@
+﻿<h5>@Message</h5>
+
+<p>This is a shared razor component.</p>
+
+<p>The value is @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    [Parameter]
+    public int InitialValue { get; set; }
+
+    [Parameter]
+    public string Message { get; set; } = "Testing Shared Component";
+
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    protected override void OnInitialized()
+    {
+        currentCount = InitialValue;
+    }
+
+}

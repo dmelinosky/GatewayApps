@@ -11,9 +11,23 @@
 </div>
 
 <p>You're currently on @Model.AppName</p>
-@*
-<TestComponent/>
 
-<div>
-    @await Component.InvokeAsync("CommonMenu")
-</div>*@
+
+<div class="row">
+    <div class="col-sm-6">
+        <component type="typeof(CommonUI.Components.TestingSharedComponent)" render-mode="ServerPrerendered" param-InitialValue="InitialValue"/>        
+    </div>
+    <div class="col-sm-6">
+        <component type="typeof(MainSite.Components.Pages.CounterComponent)" render-mode="ServerPrerendered" param-InitialValue="InitialValue"/>
+    </div>
+</div>
+
+
+@functions {
+    [BindProperty(SupportsGet = true)]
+    public int InitialValue { get; set; } = 1;
+}
+
+@section scripts {
+        <script src="_framework/blazor.server.js"></script>
+}

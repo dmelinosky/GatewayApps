@@ -29,6 +29,8 @@ namespace MainSite
             services.Configure<NamesOptions>(Configuration.GetSection(NamesOptions.Names));
 
             services.AddScoped<CommonUI.IMenuItemGenerationService, CommonUI.InMemoryMenuItemGenerationService>();
+
+            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +57,7 @@ namespace MainSite
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
             });
         }
     }

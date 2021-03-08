@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideosSite", "VideosSite\Vi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proxy", "Proxy\Proxy.csproj", "{267A9E54-18CE-491A-AF6A-D09B35F7AF8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUI", "CommonUI\CommonUI.csproj", "{9B1B80F5-39EB-48D2-863D-7A8D5ADBD2FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonUI", "CommonUI\CommonUI.csproj", "{9B1B80F5-39EB-48D2-863D-7A8D5ADBD2FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
