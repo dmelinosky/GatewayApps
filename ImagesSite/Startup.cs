@@ -30,13 +30,12 @@ namespace ImagesSite
 
             services.Configure<NamesOptions>(this.Configuration.GetSection(NamesOptions.Names));
 
+            services.TryAddScoped<CommonUI.IMenuItemGenerationService, CommonUI.InMemoryMenuItemGenerationService>();
+
             if (this.Configuration.GetValue<bool>("StandaloneMode"))
             {
+                services.RemoveAll<CommonUI.IMenuItemGenerationService>();
                 services.TryAddScoped<CommonUI.IMenuItemGenerationService, StandaloneInMemoryMenuItemGenerationService>();
-            }
-            else
-            {
-                services.TryAddScoped<CommonUI.IMenuItemGenerationService, CommonUI.InMemoryMenuItemGenerationService>();
             }
         }
 
